@@ -16,7 +16,7 @@ public class Cliente {
     public static void main(String[] args) {
         
         try {
-        	String claveEncriptacion = "Secreto!";
+        	String claveEncriptacion = "dAtAbAsE";
 
 
         	AES encriptador = new AES();
@@ -37,10 +37,10 @@ public class Cliente {
 //            String clave = sn.nextLine();
 //            int claveC = Integer.parseInt(clave);
             int[] primos = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
-            int pos = (int) Math.floor(Math.random()*primos.length-1);
+            int posp = (int) Math.floor(Math.random()*primos.length-1)+1;
             int mod = Integer.parseInt(in.readUTF());
             int base = Integer.parseInt(in.readUTF());
-            int claveC = primos[pos];
+            int claveC = primos[posp];
             System.out.println("Tu clave privada ha sido generada: " + claveC);
             
             Thread.sleep(500);
@@ -76,15 +76,33 @@ public class Cliente {
 			System.out.print(".");
 			Thread.sleep(125);
 			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
+			Thread.sleep(125);
+			System.out.print(".");
 			System.out.println();
             if (!solucionStr.equals(solucionPartner)) {
             	System.out.println("oh no, el otro usuario no era quien tu creias! por tu seguridad se cerrara la sesión");
             	sc.close();
+            }else {
+            	 System.out.println("Perfecto!! se comprobo que cada quien es quien dice ser gracias a las claves simetricas, pueden continuar con su conversación!!");
+                 System.out.println("Recuerda que todo mensaje enviado y recibido se cifrara mediante aes de 128bits");
+     			System.out.println("Ademas, se te mostrara el mensaje cifrado justo arriba del mensaje decifrado localmente");
             }
             
-            System.out.println("Perfecto!! se comprobo que cada quien es quien dice ser gracias a las claves simetricas, pueden continuar con su conversación!!");
-            System.out.println("Recuerda que todo mensaje enviado y recibido se cifrara mediante aes de 128bits");
-			System.out.println("Ademas, se te mostrara el mensaje cifrado justo arriba del mensaje decifrado localmente");
+           
 			while(true) {
         	
         		String msg = in.readUTF();

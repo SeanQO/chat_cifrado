@@ -27,7 +27,7 @@ public class Servidor {
             sn.useDelimiter("\n");
 			Socket sc;
 			
-			String claveEncriptacion = "Secreto!";
+			String claveEncriptacion = "dAtAbAsE";
 			AES encriptador = new AES();
 
 			System.out.println("Servidor iniciado");
@@ -47,12 +47,17 @@ public class Servidor {
 
 
 				int[] primos = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
-	            int pos = (int) Math.floor(Math.random()*primos.length-1);
-	            int mod = (int) Math.floor(Math.random()*primos.length-1);
-				int base = (int) Math.floor(Math.random()*primos.length-1);
+	            
+				int posp = (int) Math.floor(Math.random()*primos.length-2)+1;
+	            int modp = (int) Math.floor(Math.random()*primos.length-1)+1;
+				int basep = (int) Math.floor(Math.random()*primos.length-1)+1;
+				
+				int mod = primos[modp];
+				int base = primos[basep];
+				
 				out.writeUTF(mod + "");
 				out.writeUTF(base + "");
-	            int clave = primos[pos];
+	            int clave = primos[posp];
 	            System.out.println("Tu clave privada ha sido generada: " + clave);
 	            
 	            Thread.sleep(500);
@@ -90,7 +95,24 @@ public class Servidor {
 				System.out.print(".");
 				Thread.sleep(125);
 				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
+				Thread.sleep(125);
+				System.out.print(".");
 				System.out.println();
+
 				 if (!solucionStr.equals(solucionPartner)) {
 		            	System.out.println("oh no, el otro usuario no era quien tu creias! por tu seguridad se cerrara la sesión");
 					 	sc.close();
