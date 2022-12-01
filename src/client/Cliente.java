@@ -39,7 +39,7 @@ public class Cliente {
 //            String clave = sn.nextLine();
 //            int claveC = Integer.parseInt(clave);
            
-            int claveC = ThreadLocalRandom.current().nextInt(1, 10000 + 1);
+            int claveC = ThreadLocalRandom.current().nextInt(1, 10 + 1);
             System.out.println("Tu clave privada ha sido generada: " + claveC);
             Thread.sleep(750);
             System.out.println("Se esta Generando tu clave publica");

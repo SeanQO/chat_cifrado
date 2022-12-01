@@ -48,7 +48,7 @@ public class Servidor {
 //				int clave = Integer.parseInt(claveS);
 
 
-				int clave = ThreadLocalRandom.current().nextInt(1, 10000 + 1);
+				int clave = ThreadLocalRandom.current().nextInt(1, 10 + 1);
 
 	            System.out.println("Tu clave privada ha sido generada: " + clave);
 	            
