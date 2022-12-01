@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,17 +33,14 @@ public class Cliente {
             
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
-            
+            int mod = 7;
+            int base = 5;
 //            System.out.println("Por favor ingresa tu clave");
 //            String clave = sn.nextLine();
 //            int claveC = Integer.parseInt(clave);
-            int[] primos = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
-            int posp = (int) Math.floor(Math.random()*primos.length-1)+1;
-            int mod = Integer.parseInt(in.readUTF());
-            int base = Integer.parseInt(in.readUTF());
-            int claveC = primos[posp];
+           
+            int claveC = ThreadLocalRandom.current().nextInt(1, 10000 + 1);
             System.out.println("Tu clave privada ha sido generada: " + claveC);
-            
             Thread.sleep(750);
             System.out.println("Se esta Generando tu clave publica");
             double r = (Math.pow(base, claveC))%mod;

@@ -10,6 +10,7 @@ import java.security.NoSuchAlgorithmException;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -39,25 +40,16 @@ public class Servidor {
 
 				DataInputStream in = new DataInputStream(sc.getInputStream());
 				DataOutputStream out = new DataOutputStream(sc.getOutputStream());
-				
+				int mod = 7;
+	            int base = 5;
 				
 //				System.out.println("Por favor ingresa tu clave");
 //				String claveS = sn.nextLine();
 //				int clave = Integer.parseInt(claveS);
 
 
-				int[] primos = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
-	            
-				int posp = (int) Math.floor(Math.random()*primos.length-2)+1;
-	            int modp = (int) Math.floor(Math.random()*primos.length-1)+1;
-				int basep = (int) Math.floor(Math.random()*primos.length-1)+1;
-				
-				int mod = primos[modp];
-				int base = primos[basep];
-				
-				out.writeUTF(mod + "");
-				out.writeUTF(base + "");
-	            int clave = primos[posp];
+				int clave = ThreadLocalRandom.current().nextInt(1, 10000 + 1);
+
 	            System.out.println("Tu clave privada ha sido generada: " + clave);
 	            
 	            Thread.sleep(740);
