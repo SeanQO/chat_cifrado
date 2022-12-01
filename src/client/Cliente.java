@@ -43,10 +43,10 @@ public class Cliente {
             int claveC = primos[posp];
             System.out.println("Tu clave privada ha sido generada: " + claveC);
             
-            Thread.sleep(500);
+            Thread.sleep(750);
             System.out.println("Se esta Generando tu clave publica");
             double r = (Math.pow(base, claveC))%mod;
-            Thread.sleep(500);
+            Thread.sleep(750);
             System.out.println("Tu clave publica es: " + r + ", la cual sera compartida hasta el otro usuario");
             String publica = String.valueOf(r);
             out.writeUTF(publica);
@@ -56,7 +56,7 @@ public class Cliente {
             int solucion = (int) ((Math.pow(publicPartner, claveC))%mod);
             
             String solucionStr = String.valueOf(solucion);
-            Thread.sleep(500);
+            Thread.sleep(750);
             System.out.println("Ahora, mediante el algoritmo de Deffie-Hellman, se esta comprobando si la otra persona es quien tu crees");
             out.writeUTF(solucionStr);
             String solucionPartner = in.readUTF();
