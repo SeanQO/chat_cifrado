@@ -109,13 +109,15 @@ public class Servidor {
 		            	System.out.println("oh no, el otro usuario no era quien tu creias! por tu seguridad se cerrara la sesión");
 					 	sc.close();
 		            	
+		            } else {
+		            	System.out.println("Perfecto!! se comprobo que cada quien es quien dice ser gracias a las claves simetricas, pueden continuar con su conversación!!");
+						
+						System.out.println("Recuerda que todo mensaje enviado y recibido se cifrara mediante aes de 128bits");
+						System.out.println("Ademas, se te mostrara el mensaje cifrado justo arriba del mensaje decifrado localmente");
+						
 		            }
 				
 				 
-				System.out.println("Perfecto!! se comprobo que cada quien es quien dice ser gracias a las claves simetricas, pueden continuar con su conversación!!");
-				
-				System.out.println("Recuerda que todo mensaje enviado y recibido se cifrara mediante aes de 128bits");
-				System.out.println("Ademas, se te mostrara el mensaje cifrado justo arriba del mensaje decifrado localmente");
 				while(true) {
 					String msg = sn.next();
 					String encriptado = encriptador.encriptar(msg, claveEncriptacion);
